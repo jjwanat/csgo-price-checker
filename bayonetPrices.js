@@ -1,5 +1,6 @@
 var request = require("request"),
 cheerio = require("cheerio"),
+nodemailer = require("nodemailer"),
 urlFactoryNew = "https://steamcommunity.com/market/listings/730/%E2%98%85%20Bayonet%20%7C%20Doppler%20%28Factory%20New%29",
 urlMinWear = "https://steamcommunity.com/market/listings/730/%E2%98%85%20Bayonet%20%7C%20Doppler%20%28Minimal%20Wear%29",
 urlDopplerBayo = "https://steamcommunity.com/market/search?category_730_ItemSet%5B%5D=any&category_730_ProPlayer%5B%5D=any&category_730_StickerCapsule%5B%5D=any&category_730_TournamentTeam%5B%5D=any&category_730_Weapon%5B%5D=tag_weapon_bayonet&appid=730&q=doppler";
