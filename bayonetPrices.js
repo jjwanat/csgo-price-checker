@@ -9,8 +9,7 @@ request(urlFactoryNew, function (error, response, body) {
     var prices  = [];
 
     $('.market_listing_price_with_fee').each(function(i, elem) {
-        price = $(this).text().replace(/\t/g, '').split('\r\n');
-        prices[i] = price;
+        prices[i] = $(this).text().trim();
     });
 
     prices.join(', ');
