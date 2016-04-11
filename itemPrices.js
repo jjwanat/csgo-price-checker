@@ -6,6 +6,7 @@ var api_key = 'key-63a5ebafb80f1d576c0c0a6d01007ea1';
 var mg_domain = 'sandboxe4257b7ad2204297a4a8e920ec45a455.mailgun.org';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: mg_domain});
 
+var CronJob = require('cron').CronJob;
 
 function checkItemPrices(itemURL) {
   var itemList = [];
@@ -33,12 +34,17 @@ function checkItemPrices(itemURL) {
       };
 
       mailgun.messages().send(data, function (error, body) {
-        console.log("inside send mail");
         console.log(body);
       });
     };
   });
 }
 
-checkItemPrices(urlDopplerBayo);
+var job = new CronJob('0 */10 * * * *', function() {
+    checkItemPrices(urlDopplerBayo);
+  },
+  start: false,
+  timeZone: 'America/Chicago' /* Time zone of this job. */
+);
 
+job.start();
