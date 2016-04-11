@@ -43,8 +43,8 @@ function checkItemPrices(itemURL) {
 var job = new CronJob('0 */10 * * * *', function() {
     checkItemPrices(urlDopplerBayo);
   },
-  start: false,
-  timeZone: 'America/Chicago' /* Time zone of this job. */
+  false,
+  'America/Chicago'
 );
 
 job.start();
